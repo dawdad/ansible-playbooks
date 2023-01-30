@@ -22,3 +22,12 @@ SSH_USER_GROUP: sudo
 
 Your GitHub Username to receive your public SSH Key
 GITHUB_USERNAME: <github username>
+
+<h5>Use the Playbook:</h5>
+
+To use the Playbook with Username and Passwort to setup your SSH Key User use the following Command:
+-b will use sudo for this playbook
+-K asks you before the play for your sudo password (not need if you use root)
+
+<code>ansible-playbook 00-user-create.yml -b -K</code>
+
