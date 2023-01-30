@@ -1,11 +1,11 @@
 ---
 # Pre SSH harding script
-- hosts: hekcas1
+- hosts: <hostname>
   vars:
-    SSH_USER: adm-test
-    SSH_USER_UID: 1200
+    SSH_USER: <os-username>
+    SSH_USER_UID: <os-id>
     SSH_USER_GROUP: sudo
-    GITHUB_USERNAME: dawdad
+    GITHUB_USERNAME: <github username>
     ANSIBLE_COMMENT: "Automated by Ansible"
   tasks:
 

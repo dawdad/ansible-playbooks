@@ -3,8 +3,22 @@ collection of ansible tasks and playbooks
 
 This will be a place to share some of my playbooks I use at my daily it engineer.
 
-Most of the playbooks have an blogpost of the manual setup, as the kubernets inti playbook:
-https://www.dawdad.de/kubernetes-setup-ubuntu
+<h2>00-user-create.yml</h2>
 
-questions or feedback please via mail:
-tarekstark@dawdad.de
+This script will help you to deploy your user fast and easy without the need to copy the SSH key or create the user
+
+<h5>Variables:</h5>
+Ansible Playbook Hostnames out of your inventory
+hosts: <hostname>
+
+Your SSH user you want to create
+SSH_USER: <os-username>
+
+The user id you want to set for the user
+SSH_USER_UID: <os-id>
+
+The group the user will be joined (sudo is for Ubuntu perfect)
+SSH_USER_GROUP: sudo
+
+Your GitHub Username to receive your public SSH Key
+GITHUB_USERNAME: <github username>
