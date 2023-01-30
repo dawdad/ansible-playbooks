@@ -1,0 +1,29 @@
+---
+# Pre SSH harding script
+- hosts: hekcas1
+  vars:
+    SSH_USER: adm-test
+    SSH_USER_UID: 1200
+    SSH_USER_GROUP: sudo
+    GITHUB_USERNAME: dawdad
+    ANSIBLE_COMMENT: "Automated by Ansible"
+  tasks:
+
+    - name: Add the user {{ SSH_USER }} with uid {{ SSH_USER_UID }} and joins group {{ SSH_USER_GROUP }}
+      ansible.builtin.user:
+        name: "{{ SSH_USER }}"
+        comment: "{{ ANSIBLE_COMMENT }}"
+        uid: "{{ SSH_USER_UID }}"
+        group: "{{ SSH_USER_GROUP }}"
+
+    - name: Create the .ssh directory for {{ SSH_USER }} if it does not exist
+      ansible.builtin.file:
+        path: /home/{{ SSH_USER }}/.ssh
+        state: directory
+        mode: '0600'
+
+    - name: Get id_rsa.pub from GitHub user {{ GITHUB_USERNAME }} to .ssh for {{ SSH_USER }}
+      ansible.builtin.get_url:
+        url: https://github.com/{{ GITHUB_USERNAME }}.keys
+        dest: /home/{{ SSH_USER }}/.ssh/authorized_keys
+        mode: '0440'
