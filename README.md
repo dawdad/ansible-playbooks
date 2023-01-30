@@ -8,6 +8,7 @@ This will be a place to share some of my playbooks I use at my daily.
 This script will help you to deploy your user fast and easy without the need to copy the SSH key or create the user
 
 <h3>Variables:</h3>
+
 Ansible Playbook Hostnames out of your inventory
 <code>hosts: hostname</code>
 
