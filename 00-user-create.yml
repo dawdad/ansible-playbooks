@@ -1,11 +1,11 @@
 ---
 # Pre SSH harding script
-- hosts: <hostname>
+- hosts: hekcas1
   vars:
-    SSH_USER: <os-username>
-    SSH_USER_UID: <os-id>
+    SSH_USER: adm-test
+    SSH_USER_UID: 1200
     SSH_USER_GROUP: sudo
-    GITHUB_USERNAME: <github username>
+    GITHUB_USERNAME: dawdad
     ANSIBLE_COMMENT: "Automated by Ansible"
   tasks:
 
@@ -15,15 +15,18 @@
         comment: "{{ ANSIBLE_COMMENT }}"
         uid: "{{ SSH_USER_UID }}"
         group: "{{ SSH_USER_GROUP }}"
+        shell: /bin/bash
 
     - name: Create the .ssh directory for {{ SSH_USER }} if it does not exist
       ansible.builtin.file:
         path: /home/{{ SSH_USER }}/.ssh
         state: directory
-        mode: '0600'
+        owner: "{{ SSH_USER }}"
+        mode: '0700'
 
     - name: Get id_rsa.pub from GitHub user {{ GITHUB_USERNAME }} to .ssh for {{ SSH_USER }}
       ansible.builtin.get_url:
         url: https://github.com/{{ GITHUB_USERNAME }}.keys
         dest: /home/{{ SSH_USER }}/.ssh/authorized_keys
-        mode: '0440'
+        owner: "{{ SSH_USER }}"
+        mode: '0600'
