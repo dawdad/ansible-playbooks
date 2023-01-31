@@ -21,6 +21,9 @@ The user id you want to set for the user
 The group the user will be joined (sudo is for Ubuntu perfect)
 <code>SSH_USER_GROUP: sudo</code>
 
+Change the value to a passwort you wish for the user (This is needed for sudo -i command)
+<code>password</code>
+
 Your GitHub Username to receive your public SSH Key
 <code>GITHUB_USERNAME: github username</code>
 

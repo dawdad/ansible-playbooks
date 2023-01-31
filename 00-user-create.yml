@@ -1,11 +1,12 @@
 ---
 # Pre SSH harding script
-- hosts: hekcas1
+- hosts: <hostname>
   vars:
-    SSH_USER: adm-test
-    SSH_USER_UID: 1200
-    SSH_USER_GROUP: sudo
-    GITHUB_USERNAME: dawdad
+    SSH_USER: <username>
+    SSH_USER_UID: <userid>
+    SSH_USER_GROUP: <usergroup>
+    SSH_USER_PASSWORD: "{{ '<password>' | password_hash('sha512', 'mysecretsalt') }}"
+    GITHUB_USERNAME: <github username>
     ANSIBLE_COMMENT: "Automated by Ansible"
   tasks:
 
@@ -15,6 +16,7 @@
         comment: "{{ ANSIBLE_COMMENT }}"
         uid: "{{ SSH_USER_UID }}"
         group: "{{ SSH_USER_GROUP }}"
+        password: "{{ SSH_USER_PASSWORD }}"
         shell: /bin/bash
 
     - name: Create the .ssh directory for {{ SSH_USER }} if it does not exist
