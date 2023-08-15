@@ -1,7 +1,7 @@
-ANSIBLE_HOSTS: hekcas1
-SSH_USER: adm-ansible1
-SSH_USER_UID: 2000
-SSH_USER_GROUP: 27
-SSH_USER_PASSWORD: "{{ 'Start123!!' | password_hash('sha512', 'mysecretsalt') }}"
-GITHUB_USERNAME: dawdad
+ANSIBLE_HOSTS: <ansible-hostname> 
+SSH_USER: <username>
+SSH_USER_UID: <userid>
+SSH_USER_GROUP: <groupid>
+SSH_USER_PASSWORD: "{{ '<PASSWORD>' | password_hash('sha512', 'mysecretsalt') }}"
+GITHUB_USERNAME: <github-username>
 ANSIBLE_COMMENT: "Automated by Ansible"
