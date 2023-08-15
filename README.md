@@ -44,3 +44,16 @@ With dedicated ansible inventory
 
 <code>ansible-playbook 00-user-create.yml -K -i ~/.ansible/hosts</code>
 
+<h2>01-docker-install.yml</h2>
+
+this ansible playbook will install docker onto your servers according to the docker docs for ce installation: https://docs.docker.com/engine/install/ubuntu/
+
+manual way to install it very fast is to use
+<code>curl -fsSL https://get.docker.com | sh</code>
+
+<h2>Variables:</h2>
+Ansible playbook Hostname from group_vars/all.yml
+<code>ANSIBLE_HOSTS</code>
+
+ansible playbook use
+<code>ansible-playbook 01-docker-install.yml -i ~/.ansible/hosts -K</code>
