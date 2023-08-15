@@ -7,6 +7,9 @@ This will be a place to share some of my playbooks I use at my daily.
 
 This script will help you to deploy your user fast and easy without the need to copy the SSH key or create the user
 
+Copy the all.yml.example to all.yml
+
+You need to change the Variables in the all.yml file in the group_all folder:
 <h3>Variables:</h3>
 
 Ansible Playbook Hostnames out of your inventory
@@ -30,7 +33,6 @@ Your GitHub Username to receive your public SSH Key
 <h3>Use the Playbook:</h3>
 
 To use the Playbook with Username and Passwort to setup your SSH Key User use the following Command:
--b will use sudo for this playbook
 -K asks you before the play for your sudo password (not need if you use root)
 
 <code>ansible-playbook 00-user-create.yml -b -K</code>
