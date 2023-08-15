@@ -3,6 +3,22 @@ collection of ansible tasks and playbooks
 
 This will be a place to share some of my playbooks I use at my daily.
 
+<h2>use multiple playbooks at once</h2>
+
+create a file
+<code>touch playall.yml<code>
+
+add the following lines (e.g.)
+<code>
+- import_playbook: 00-user-create.yml
+- import_playbook: 01-docker-install.yml
+</code>
+
+use the new playbook for ansible playbook
+<code>ansible-playbook playall.yml -i ~/.ansible/hosts -K<code>
+
+! you need to setup the variables in group_vars/all.yml before use the playbooks ! 
+
 <h2>00-user-create.yml</h2>
 
 This script will help you to deploy your user fast and easy without the need to copy the SSH key or create the user
