@@ -1,7 +1,0 @@
-Server=130.185.119.169
-ServerActive=130.185.119.169:10051
-Hostname=maascas1
-TLSConnect=psk
-TLSAccept=psk
-TLSPSKFile=/opt/zabbix_agentd.psk
-TLSPSKIdentity=PSK001
