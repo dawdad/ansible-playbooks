@@ -9,10 +9,10 @@ create a file
 <code>touch playall.yml</code>
 
 add the following lines (e.g.)
-<code>
+```
 - import_playbook: 00-user-create.yml
 - import_playbook: 01-docker-install.yml
-</code>
+```
 
 use the new playbook for ansible playbook
 <code>ansible-playbook playall.yml -i ~/.ansible/hosts -K</code>
