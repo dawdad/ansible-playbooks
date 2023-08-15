@@ -67,7 +67,7 @@ this ansible playbook will install docker onto your servers according to the doc
 manual way to install it very fast is to use
 <code>curl -fsSL https://get.docker.com | sh</code>
 
-<h2>Variables:</h2>
+<h3>Variables:</h3>
 Ansible playbook Hostname from group_vars/all.yml
 <code>ANSIBLE_HOSTS</code>
 
