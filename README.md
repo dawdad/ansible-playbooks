@@ -15,9 +15,9 @@ add the following lines (e.g.)
 </code>
 
 use the new playbook for ansible playbook
-<code>ansible-playbook playall.yml -i ~/.ansible/hosts -K<code>
+<code>ansible-playbook playall.yml -i ~/.ansible/hosts -K</code>
 
-! you need to setup the variables in group_vars/all.yml before use the playbooks ! 
+! you need to setup the variables in group_vars/all.yml before use the playbooks !
 
 <h2>00-user-create.yml</h2>
 
