@@ -3,5 +3,7 @@ SSH_USER: <username>
 SSH_USER_UID: <userid>
 SSH_USER_GROUP: <groupid>
 SSH_USER_PASSWORD: "{{ '<PASSWORD>' | password_hash('sha512', 'mysecretsalt') }}"
+SSH_FOLDER_MODE: "0700"
+ID_RSA_FILE_MODE: "0600"
 GITHUB_USERNAME: <github-username>
 ANSIBLE_COMMENT: "Automated by Ansible"

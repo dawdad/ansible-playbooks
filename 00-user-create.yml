@@ -1,15 +1,9 @@
 ---
-# Pre SSH harding script
-- hosts: hekcas1
+# Add user via with github sshkey
+- hosts: '{{ ANSIBLE_HOSTS }}'
+  vars_files:
+    - group_vars/all.yml
   become: true
-#- hosts: "{{ ANSIBLE_HOSTS }}"
- #vars:
- ##   SSH_USER: adm-tst
-#   SSH_USER_UID: 1337
-#   SSH_USER_GROUP: 27 
-#   SSH_USER_PASSWORD: "{{ 'Start123!!' | password_hash('sha512', 'mysecretsalt') }}"
-#   GITHUB_USERNAME: dawdad
-#   ANSIBLE_COMMENT: "Automated by Ansible"
   tasks:
 
     - name: Add the user {{ SSH_USER }} with uid {{ SSH_USER_UID }} and joins group {{ SSH_USER_GROUP }}
@@ -26,11 +20,11 @@
         path: /home/{{ SSH_USER }}/.ssh
         state: directory
         owner: "{{ SSH_USER }}"
-        mode: '0700'
+        mode: "{{ SSH_FOLDER_MODE }}"
 
     - name: Get id_rsa.pub from GitHub user {{ GITHUB_USERNAME }} to .ssh for {{ SSH_USER }}
       ansible.builtin.get_url:
         url: https://github.com/{{ GITHUB_USERNAME }}.keys
         dest: /home/{{ SSH_USER }}/.ssh/authorized_keys
         owner: "{{ SSH_USER }}"
-        mode: '0600'
+        mode: "{{ ID_RSA_FILE_MODE }}"
