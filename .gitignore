@@ -1,5 +1,9 @@
 # ignore ALL .log files
 *.log
 
+# root file
+.DS_Store
+zabbix-agent.yml
+
 # ignore ALL files in ANY directory named temp
 group_vars/all.yml 
