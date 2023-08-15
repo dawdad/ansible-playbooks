@@ -1,13 +1,15 @@
 ---
 # Pre SSH harding script
-- hosts: <hostname>
-  vars:
-    SSH_USER: <username>
-    SSH_USER_UID: <userid>
-    SSH_USER_GROUP: <usergroup>
-    SSH_USER_PASSWORD: "{{ '<password>' | password_hash('sha512', 'mysecretsalt') }}"
-    GITHUB_USERNAME: <github username>
-    ANSIBLE_COMMENT: "Automated by Ansible"
+- hosts: hekcas1
+  become: true
+#- hosts: "{{ ANSIBLE_HOSTS }}"
+ #vars:
+ ##   SSH_USER: adm-tst
+#   SSH_USER_UID: 1337
+#   SSH_USER_GROUP: 27 
+#   SSH_USER_PASSWORD: "{{ 'Start123!!' | password_hash('sha512', 'mysecretsalt') }}"
+#   GITHUB_USERNAME: dawdad
+#   ANSIBLE_COMMENT: "Automated by Ansible"
   tasks:
 
     - name: Add the user {{ SSH_USER }} with uid {{ SSH_USER_UID }} and joins group {{ SSH_USER_GROUP }}
