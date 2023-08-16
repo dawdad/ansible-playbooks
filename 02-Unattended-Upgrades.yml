@@ -1,0 +1,42 @@
+---
+# install Unattended-Upgradesclients with custom setup
+# change the group_vars/10periodic.js and group_vars/50unattended-upgrades.j2 to your settings
+
+- hosts: '{{ ANSIBLE_HOSTS }}'
+  vars_files:
+    - group_vars/all.yml
+  become: true
+  tasks:
+
+   - name: Install unattended-upgrades
+    ansible.builtin.apt:
+      name: unattended-upgrades
+      state: present
+    notify:
+    - Restart unattended-upgrades
+
+   # übertragen der config datei via jinja
+  - name: create APT auto-upgrades configuration
+    template:
+      backup: true
+      src: 10periodic.j2
+      dest: /etc/apt/apt.conf.d/10periodic
+      owner: root
+      group: root
+      mode: 0644
+
+  # übertragen der config datei via jinja
+  - name: create unattended-upgrades configuration
+    template:
+      backup: true
+      src: 50unattended-upgrades.j2
+      dest: /etc/apt/apt.conf.d/50unattended-upgrades
+      owner: root
+      group: root
+      mode: 0644
+
+  handlers:
+  - name: Restart unattended-upgrades
+    ansible.builtin.systemd:
+      name: unattended-upgrades
+      state: restarted
