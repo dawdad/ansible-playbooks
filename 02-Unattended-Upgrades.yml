@@ -1,5 +1,6 @@
 ---
 # install Unattended-Upgradesclients with custom setup
+# https://wiki.debian.org/UnattendedUpgrades
 # change the group_vars/10periodic.js and group_vars/50unattended-upgrades.j2 to your settings
 
 - hosts: '{{ ANSIBLE_HOSTS }}'

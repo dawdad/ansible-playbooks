@@ -73,3 +73,16 @@ Ansible playbook Hostname from group_vars/all.yml
 
 ansible playbook use
 <code>ansible-playbook 01-docker-install.yml -i ~/.ansible/hosts -K</code>
+
+
+<h2>03-unattended-Upgrade</h3>
+
+Change the group_vars/10periodic.js and group_vars/50unattended-upgrades.j2 to your settings
+
+<h3>Variables:</h3>
+Ansible playbook Hostname from group_vars/all.yml
+<code>ANSIBLE_HOSTS</code>
+
+ansible playbook use
+<code>ansible-playbook 02-unattended-Upgrades.yml -i ~/.ansible/hosts -K</code>
+
