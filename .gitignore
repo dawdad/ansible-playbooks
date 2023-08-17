@@ -7,3 +7,5 @@ zabbix-agent.yml
 
 # ignore ALL files in ANY directory named temp
 group_vars/all.yml 
+group_vars/zabbix_agentd.psk
+group_vars/zabbix_agentd.j2
