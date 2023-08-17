@@ -86,3 +86,14 @@ Ansible playbook Hostname from group_vars/all.yml
 ansible playbook use
 <code>ansible-playbook 02-unattended-Upgrades.yml -i ~/.ansible/hosts -K</code>
 
+<h2>03-zabbix-agent-install.yml</h2>
+
+Zabbix Agent 2 - Playbook to add the Agent on the server with PSK Key setup.
+
+```
+add your psk key into the zabbix_agentd.j2 file
+add your server settings into the zabbix_agent2.conf.j2
+```
+
+execute ansible playbook via
+<code>ansible-playbook 03-zabbix-agent-install.yml -i ~/.ansible/hosts -K</code>
