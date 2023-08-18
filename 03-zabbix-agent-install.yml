@@ -3,7 +3,7 @@
 # zabbix-release_latest+ubuntu22.04_all.deb 
 # dpkg -i zabbix-release_6.4-1+ubuntu22.04_all.deb
 # apt update 
-- hosts: zorgati
+- hosts: 
   vars_files:
     - group_vars/all.yml
   become: true

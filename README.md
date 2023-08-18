@@ -97,3 +97,4 @@ add your server settings into the zabbix_agent2.conf.j2
 
 execute ansible playbook via
 <code>ansible-playbook 03-zabbix-agent-install.yml -i ~/.ansible/hosts -K</code>
+ 
